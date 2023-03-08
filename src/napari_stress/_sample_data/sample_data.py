@@ -74,3 +74,49 @@ def make_binary_ellipsoid(major_axis_length: float = 10.0,
         'name': 'Ellipsoid'
     }
     return (np.pad(ellipsoid, edge_padding).astype(int), properties, 'labels')
+
+
+def make_blurry_ellipsoid(
+        major_axis_length: float = 10.0,
+        medial_axis_length: float = 7.0,
+        minor_axis_length: float = 5.0,
+        resolution: int = 100,
+        transition_width: float = 1.0,
+        slope: float = 5.0) -> LayerDataTuple:
+    """
+    Creates a 3D ellipsoid with the given dimensions and sampling.
+
+    Parameters
+    ----------
+    major_axis_length : float
+        Length of the major axis of the ellipsoid.
+    medial_axis_length : float
+        Length of the medial axis of the ellipsoid.
+    minor_axis_length : float
+        Length of the minor axis of the ellipsoid.
+
+    """
+    import numpy as np
+
+    # Calculate the maximum radius and add a small margin
+    max_radius = max(
+        major_axis_length, medial_axis_length, minor_axis_length) + 1
+    xmin, xmax, ymin, ymax, zmin, zmax = -max_radius,\
+        max_radius, -max_radius, max_radius, -max_radius, max_radius
+
+    # Create a 3D coordinate grid
+    x, y, z = np.mgrid[xmin:xmax:resolution*1j,
+                       ymin:ymax:resolution*1j,
+                       zmin:zmax:resolution*1j]
+
+    # Define the ellipsoid equation
+    eqn = ((x/major_axis_length)**2 +
+           (y/medial_axis_length)**2 +
+           (z/minor_axis_length)**2)
+
+    # Create a sigmoid transition layer
+    image = 1 - 1 / (1 + np.exp(-slope * (eqn - 0.5) / transition_width))
+
+    properties = {'name': 'Ellipsoid'}
+
+    return (image, properties, 'image')
