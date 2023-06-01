@@ -74,11 +74,16 @@ class stress_analysis_toolbox(QWidget):
 
     def _run(self):
         """Call analysis function."""
+        import webbrowser
+        if self.checkBox_use_dask.isChecked():
+            webbrowser.open("http://localhost:8787")
+
         results = comprehensive_analysis(
             self.layer_select.value.data,
             max_degree=self.spinBox_max_degree.value(),
             n_quadrature_points=int(self.comboBox_quadpoints.currentData()),
-            gamma=self.doubleSpinBox_gamma.value()
+            gamma=self.doubleSpinBox_gamma.value(),
+            use_dask=self.checkBox_use_dask.isChecked(),
             )
 
         for layer in results:
@@ -123,11 +128,6 @@ def comprehensive_analysis(pointcloud: PointsData,
             projected on the surface of the ellipsoid.
             * `layer_quadrature`: Points layer with quadrature points on the
             surface of the spherical harmonics expansion.
-
-    See Also
-    --------
-
-    [0]
     """
     from .. import approximation
     from .. import measurements
