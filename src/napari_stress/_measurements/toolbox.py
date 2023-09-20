@@ -156,11 +156,6 @@ def comprehensive_analysis(pointcloud: PointsData,
             projected on the surface of the ellipsoid.
             * `layer_quadrature`: Points layer with quadrature points on the
             surface of the spherical harmonics expansion.
-
-    See Also
-    --------
-
-    [0]
     """
     from .. import approximation
     from .. import measurements
