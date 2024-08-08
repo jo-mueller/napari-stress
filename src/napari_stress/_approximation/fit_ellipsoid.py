@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from napari.types import PointsData, VectorsData
-from .._utils.frame_by_frame import frame_by_frame
+from napari_timelapse_processor import frame_by_frame
 from .. import __version__
 from napari_tools_menu import register_function
 import numpy as np
@@ -54,7 +54,7 @@ def fit_ellipsoid_to_points(
 ) -> "napari.types.VectorsData":
     """
     Fit a 3D ellipsoid to given points using least squares fitting.
-    The ellipsoid equation is: Ax^2 + By^2 + Cz^2 + Dxy + Exz + Fyz + Gx + Hy + Iz = 1
+    The ellipsoid equation is: Ax^2 + By^2 + Cz^2 +  Dxy +  Exz +  Fyz +  Gx +  Hy +  Iz = 1
 
     :param points: A numpy array of shape (N, 3) representing the 3D points.
     :return: A numpy array containing the coefficients [A, B, C, D, E, F, G, H, I, J] of the ellipsoid equation.
@@ -167,7 +167,7 @@ def normals_on_ellipsoid(points: PointsData) -> VectorsData:
     J = coefficients.flatten()[8]
 
     xx = points[:, 0][:, None]
-    yy = points[:, 1][:, None]
+    yy = points[:, 1][:[:, None]
     zz = points[:, 2][:, None]
 
     grad_F_x = 2.0 * A * xx + D * yy + E * zz + G

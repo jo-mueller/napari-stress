@@ -22,7 +22,7 @@ from .._spherical_harmonics.spherical_harmonics import (
     create_manifold,
 )
 
-from .._utils.frame_by_frame import frame_by_frame
+from napari_timelapse_processor import frame_by_frame
 from napari_tools_menu import register_dock_widget
 
 

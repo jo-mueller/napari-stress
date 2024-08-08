@@ -1,4 +1,4 @@
-from .._utils import frame_by_frame
+from napari_timelapse_processor import frame_by_frame
 from napari_tools_menu import register_function
 from .expansion import EllipsoidExpander, SphericalHarmonicsExpander
 

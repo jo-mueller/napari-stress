@@ -1,5 +1,5 @@
 import numpy as np
-from .._utils import frame_by_frame
+from napari_timelapse_processor import frame_by_frame
 from typing import Tuple
 
 

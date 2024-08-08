@@ -1,7 +1,7 @@
 from napari.types import PointsData, LayerDataTuple
 from napari_tools_menu import register_function
 
-from .._utils.frame_by_frame import frame_by_frame
+from napari_timelapse_processor import frame_by_frame
 import napari
 
 
