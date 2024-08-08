@@ -19,7 +19,7 @@ from ._surface import (
     fit_ellipsoid_to_pointcloud_vectors,
 )
 
-from ._utils.frame_by_frame import TimelapseConverter, frame_by_frame
+from napari_timelapse_processor import TimelapseConverter, frame_by_frame
 
 from ._spherical_harmonics.spherical_harmonics_napari import fit_spherical_harmonics
 from ._spherical_harmonics.spherical_harmonics import (

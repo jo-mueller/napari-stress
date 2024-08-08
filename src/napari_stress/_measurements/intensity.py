@@ -2,7 +2,7 @@ from napari.types import LayerDataTuple
 from napari_tools_menu import register_function
 import pandas as pd
 import numpy as np
-from .._utils.frame_by_frame import frame_by_frame
+from napari_timelapse_processor import frame_by_frame
 
 
 @register_function(menu="Measurement > Measure intensities on surface (n-STRESS)")

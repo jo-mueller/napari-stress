@@ -10,7 +10,7 @@ import pandas as pd
 from napari.layers import Layer
 
 from .._utils import coordinate_conversion as conversion
-from .._utils.frame_by_frame import frame_by_frame
+from napari_timelapse_processor import frame_by_frame
 from ..types import (
     _METADATAKEY_MEAN_CURVATURE,
     _METADATAKEY_H0_ELLIPSOID,
