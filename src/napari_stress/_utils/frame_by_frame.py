@@ -18,8 +18,13 @@ from dask.distributed import Client, get_client
 
 import pandas as pd
 import tqdm
+import deprecated
 
 
+@deprecated.deprecated(
+    version="0.4.0",
+    reason="This function is deprecated. Use the `frame_by_frame` decorator from the napari-timelapse-processor package instead.",
+)
 def frame_by_frame(function: callable, progress_bar: bool = False):
     """
     Decorator to apply a function frame by frame to 4D data.
@@ -121,6 +126,10 @@ def frame_by_frame(function: callable, progress_bar: bool = False):
     return wrapper
 
 
+@deprecated.deprecated(
+    version="0.4.0",
+    reason="This class is deprecated. Use the `TimelapseConverter` decorator from the napari-timelapse-processor package instead.",
+)
 class TimelapseConverter:
     """
     This class allows converting napari 4D layer data between different formats.
