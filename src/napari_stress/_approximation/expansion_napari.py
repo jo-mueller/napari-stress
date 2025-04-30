@@ -1,7 +1,8 @@
 from napari_tools_menu import register_function
 
 from .._utils import frame_by_frame
-from .expansion import EllipsoidExpander, SphericalHarmonicsExpander
+from .expansion_spherical_harmonics import SphericalHarmonicsExpander
+from .expansion_ellipsoid import EllipsoidExpander
 
 
 @register_function(menu="Points > Fit ellipsoid to pointcloud (n-STRESS)")
