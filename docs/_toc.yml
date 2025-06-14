@@ -8,14 +8,19 @@ options:
   numbered: False
 
 parts:
-  - caption: Usage
+  - caption: Droplet analysis
+    chapters:
+    - file: 00_reconstruct_droplet/demo_analyze_everything
+    - file: 00_reconstruct_droplet/demo_analyze_everything_batch
+    - file: 00_reconstruct_droplet/demo_droplet_reconstruction_toolbox
+    - file: 00_reconstruct_droplet/demo_stress_toolbox_interactive
+
+  - caption: Other example usecases
     chapters:
     - file: 01_code_usage/code_usage
       sections:
       - file: 01_code_usage/demo_droplet_reconstruction_toolbox_code
       - file: 01_code_usage/demo_anisotropic_stresses
-      - file: 01_code_usage/demo_analyze_everything
-      - file: 01_code_usage/demo_analyze_everything_batch
       - file: 01_code_usage/demo_fit_ellipsoid_code
       - file: 01_code_usage/demo_measure_patch_fitted_curvature
       - file: 01_code_usage/demo_surface_reconstruction_code
@@ -24,13 +29,10 @@ parts:
       - file: 01_code_usage/demo_spherical_harmonics_code
       - file: 01_code_usage/demo_measure_intensity_on_surface
       - file: 01_code_usage/demo_measure_intensity_on_vectors
-
+    
     - file: 02_interactive_usage/interactive_usage
       sections:
-      - file: 02_interactive_usage/demo_droplet_reconstruction_toolbox
-      - file: 02_interactive_usage/demo_stress_toolbox_interactive
       - file: 02_interactive_usage/demo_fit_ellipsoid_interactive
-      - file: 02_interactive_usage/demo_surface_reconstruction_interactive
       - file: 02_interactive_usage/demo_spherical_harmonics_interactive
       - file: 02_interactive_usage/demo_measure_curvature
       - file: 02_interactive_usage/visualize_measurements_in_viewer
